@@ -10,7 +10,7 @@ public class HelloWorld {
         System.out.println("Hello from IntelliJ");
         String text = scanner.nextLine();
         System.out.println("Du skrev " + text);
-
+        System.out.println("Hej");
         System.out.println("Bye!");
     }
 }
