@@ -39,6 +39,13 @@ public class Variables {
         float findTheGap = 16777216.0f;
         System.out.println(findTheGap);
         System.out.printf("%.2f\n", findTheGap);
+
+        final int DAYS_IN_WEEK = 7;
+        System.out.println("Every week has " + DAYS_IN_WEEK + " days");
+
+
+
+
     }
 
 }
