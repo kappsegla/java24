@@ -2,7 +2,6 @@ package se.iths;
 
 
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 
 public class Variables {
 
@@ -43,7 +42,42 @@ public class Variables {
         final int DAYS_IN_WEEK = 7;
         System.out.println("Every week has " + DAYS_IN_WEEK + " days");
 
+        int i = 127;
+        byte b = (byte) i;
 
+        float milkPrice = 14.45f;
+
+        int price = (int) (milkPrice + 0.5f);
+        System.out.println(price);
+
+
+        int evenOrOdd = 3;
+        System.out.println(evenOrOdd % 2);
+        evenOrOdd = 6;
+        System.out.println(evenOrOdd % 2);
+
+        final int change = 432;
+        int temp = change;
+        //Calculate the amount of different bills that should be returned as change
+        System.out.println("Number of 500 bills: " + temp / 500);
+        temp = temp % 500;
+        System.out.println("Number of 200 bills: " + temp / 200);
+        temp = temp % 200;
+        System.out.println("Number of 100 bills: " + temp / 100);
+        temp = temp % 100;
+        System.out.println("Number of 50 bills: " + temp / 50);
+        temp = temp % 50;
+        System.out.println("Number of 20 bills: " + temp / 20);
+        temp = temp % 20;
+        System.out.println("Number of 10 kronor: " + temp / 10);
+        temp = temp % 10;
+        System.out.println("Number of 5 kronor: " + temp / 5);
+        temp = temp % 5;
+        System.out.println("Number of 1 kronor: " + temp / 1);
+        temp = temp % 1;
+
+        //This gives us the same result as change % 500
+        System.out.println(change - (500 * (change / 500)));
 
 
     }
