@@ -29,7 +29,7 @@ public class Variables {
 
         float dollar = 1.3f;
         System.out.println(dollar);
-        System.out.printf("%.10f\n",dollar);
+        System.out.printf("%.10f\n", dollar);
 
         int maxInteger = Integer.MAX_VALUE;
         System.out.println("MaxInteger: " + maxInteger);
@@ -38,11 +38,7 @@ public class Variables {
 
         float findTheGap = 16777216.0f;
         System.out.println(findTheGap);
-        System.out.printf("%.2f\n",findTheGap);
-
-
-
-
+        System.out.printf("%.2f\n", findTheGap);
     }
 
 }
