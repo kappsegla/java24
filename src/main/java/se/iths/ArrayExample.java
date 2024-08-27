@@ -10,11 +10,11 @@ public class ArrayExample {
 
     public static void main(String[] args) {
         System.out.print("Write a number: ");
-        int i = scanner.nextInt();
-        System.out.println("You wrote " + i);
+        int numberOne = scanner.nextInt();
+        System.out.print("Write a number: ");
+        int numberTwo = scanner.nextInt();
 
-
-
+        System.out.println("You wrote " + numberOne + " " + numberTwo);
 
     }
 
