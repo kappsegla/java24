@@ -11,15 +11,15 @@ public class ArrayExample {
     public static void main(String[] args) {
         int[] numbers = new int[10];
 
-
         for (int i = 0; i < 10; i++) {
             System.out.print("Write a number: ");
             numbers[i] = scanner.nextInt();
         }
 
         System.out.print("You wrote ");
-        for (int i = 0; i < 10; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int i = 0; i < numbers.length; i++) {
+            int number = numbers[i];
+            System.out.print(number + " ");
         }
 
     }
