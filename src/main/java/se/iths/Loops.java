@@ -7,6 +7,14 @@ public class Loops {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        for (int i = 9; i >= 0; i--) {
+            System.out.println(i);
+        }
+
+        for (int i = 1; i < 10; i++) {
+            System.out.println(10 - i);
+        }
+
         for (int i = 0; i < 10; i++) {
             System.out.println(i * 10);
         }
@@ -17,7 +25,6 @@ public class Loops {
 
 //        for (float f = 0.0f; f < 1.0; f += 0.1f)
 //            System.out.println(f);
-
         for (int i = 0; i < 10; i++) {
             System.out.println(i / 10.0);
         }
