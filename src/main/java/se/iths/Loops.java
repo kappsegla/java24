@@ -7,8 +7,33 @@ public class Loops {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        whileLoop2();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i * 10);
+        }
+
+        for (int i = 0; i < 100; i = i + 10) {
+            System.out.println(i);
+        }
+
+//        for (float f = 0.0f; f < 1.0; f += 0.1f)
+//            System.out.println(f);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i / 10.0);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            forLoop();
+        }
     }
+
+    private static void forLoop() {
+        //Print hej 3 times
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Hej");
+        }
+    }
+
 
     private static void whileLoop2() {
         int n = 1;
