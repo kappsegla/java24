@@ -14,15 +14,17 @@ public class Exercise2 {
         double med = (num1 + num2) / 2.;
         System.out.println("Medelvärdet är: " + med);
 
+        //num1 = Math.abs(num1);
+
         if (num1 < 0) {
-            num1 = num1 * -1;
+            num1 = -num1;
         }
         if (num2 < 0) {
             num2 = num2 * -1;
         }
         if (num1 == num2) {
             System.out.println("Summan av de två talen gånger två är: " + (num1 + num2) * 2);
-        } else {()
+        } else {
             System.out.println("Summan av de två talen är: " + (num1 + num2));
         }
     }
