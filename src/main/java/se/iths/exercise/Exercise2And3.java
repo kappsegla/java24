@@ -2,7 +2,7 @@ package se.iths.exercise;
 
 import java.util.Scanner;
 
-public class Exercise2 {
+public class Exercise2And3 {
     public static Scanner scnr = new Scanner(System.in);
 
     public static void main(String[] args) {
