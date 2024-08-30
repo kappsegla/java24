@@ -6,6 +6,7 @@ public class Exercise4 {
 
         System.out.println("What day of the week is it? ");
         String dayOfWeek = scanner.nextLine().toLowerCase();
+        //dayOfWeek = dayOfWeek.substring(0,3);
 
         int dayNumber = switch (dayOfWeek) {
             case "monday", "mon" -> 1;
