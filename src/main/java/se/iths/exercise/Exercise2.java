@@ -15,6 +15,7 @@ public class Exercise2 {
         System.out.println("Medelvärdet är: " + med);
 
         //num1 = Math.abs(num1);
+        //num1 = num1 < 0 ? -num1 : num1;
 
         if (num1 < 0) {
             num1 = -num1;
