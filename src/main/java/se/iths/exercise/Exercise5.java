@@ -7,26 +7,27 @@ public class Exercise5 {
             System.out.println("Felaktig inmatning, måste vara 3 nummer");
             return;
         }
-        int[] integers = new int[3];
-        for (int i = 0; i < args.length; i++) {
+//        int[] integers = new int[3];
+//        for (int i = 0; i < args.length; i++) {
+//            try {
+//                integers[i] = Integer.parseInt(args[i]);
+//            } catch (NumberFormatException e) {
+//                //Skriv ut felmeddelande
+//                System.out.println("Fel format! Förväntade siffror");
+//                //Spara 0 på platsen
+//                integers[i] = 0;
+//            }
+//        }
+        int max = Integer.MIN_VALUE;
+        for (String arg : args) {
+            int tal = 0;
             try {
-                integers[i] = Integer.parseInt(args[i]);
-            } catch (NumberFormatException e) {
-                //Skriv ut felmeddelande
+                tal = Integer.parseInt(arg);
+            }catch (NumberFormatException e) {
                 System.out.println("Fel format! Förväntade siffror");
-                //Spara 0 på platsen
-                integers[i] = 0;
             }
-        }
-
-        int max = integers[0];
-        for (int i = 0; i < integers.length; i++) {
-            if (integers[i] > max) {
-                max = integers[i];
-            }
+            max = Math.max(tal, max);
         }
         System.out.println("Max value is: " + max);
-
-
     }
 }
