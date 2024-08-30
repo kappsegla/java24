@@ -4,19 +4,20 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Exercise6 {
+    public static final int ARRAY_SIZE = 20;
 
     public static void main(String[] args) {
-        int[] anArray = new int[10];
-        int[] reverseArray = new int[10];
+        int[] anArray = new int[ARRAY_SIZE];
+        int[] reverseArray = new int[ARRAY_SIZE];
 
         Random rand = new Random();
-        for (int i = 0; i < 10 ; i++) {
+        for (int i = 0; i < ARRAY_SIZE ; i++) {
             //anArray[i] = (int) (Math.random() * 11);
             int randomNumber = rand.nextInt(10);
             anArray[i] = randomNumber;
         }
-        int j = 9;
-        for (int i = 0; i <anArray.length ; i++) {
+        int j = ARRAY_SIZE - 1;
+        for (int i = 0; i < ARRAY_SIZE ; i++) {
             reverseArray[j] = anArray[i];
             j--;
         }
