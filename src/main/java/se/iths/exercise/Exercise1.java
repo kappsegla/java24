@@ -12,6 +12,7 @@ public class Exercise1 {
 
         String s = name.substring(0, 1).toUpperCase();
         String nameCapitilized = s + name.substring(1);
+
         System.out.println("Hej " + nameCapitilized);
 
     }
