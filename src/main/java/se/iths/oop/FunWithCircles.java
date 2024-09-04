@@ -1,5 +1,7 @@
 package se.iths.oop;
 
+import java.math.BigInteger;
+
 public class FunWithCircles {
     public static void main(String[] args) {
 
@@ -19,14 +21,26 @@ public class FunWithCircles {
 
         CanItBeNull canIt = new CanItBeNull();
         System.out.println(canIt.name().length());
-
+        canIt.name("Name");
     }
 }
 
 class CanItBeNull {
     private String name = "";
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String name() {
         return name;
+    }
+
+    public void name(String name) {
+        this.name = name;
     }
 }
