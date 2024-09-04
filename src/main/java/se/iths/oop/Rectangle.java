@@ -9,6 +9,14 @@ public class Rectangle {
     private float height;
     private Color color;
 
+    public Rectangle(float width, float height, Color color) {
+        if (width <= 0 || height <= 0)
+            throw new IllegalArgumentException();
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+
     //Methods for changing and reading field data
     public void changeWidth(float newWidth) {
         //Validation of data. Prefer validation first in method, early throw/return
@@ -32,5 +40,7 @@ public class Rectangle {
         return height;
     }
 
-
+    public Color getColor() {
+        return this.color;
+    }
 }
