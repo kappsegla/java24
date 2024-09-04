@@ -17,8 +17,6 @@ public class Circle {
 
     //circumference, omkretsen på runda föremål circle, oval
     public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        return Math.PI * radius * 2;
     }
-
-
 }
