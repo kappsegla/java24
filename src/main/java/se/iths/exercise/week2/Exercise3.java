@@ -15,7 +15,7 @@ public class Exercise3 {
         input = input.toLowerCase();
 
         //Loop through all characters in string
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length() / 2; i++) {
             // Compares character at current index with it's reversed index
             if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
                 return false;
