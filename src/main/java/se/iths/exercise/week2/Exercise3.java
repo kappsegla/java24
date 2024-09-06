@@ -7,7 +7,10 @@ public class Exercise3 {
         System.out.println(isPalindrome("level")); // true
         System.out.println(isPalindrome("saippuakivikauppias")); // true
         System.out.println(isPalindrome("1221")); // True
-        System.out.println(isPalindrome("Tattarrattat")); // Ska vara true (men retunerar false för att den jämför T med t)
+        System.out.println(isPalindrome("Tattarrattat")); // true
+        System.out.println(isPalindrome(333)); // true
+        System.out.println(isPalindrome(454)); // true
+        System.out.println(isPalindrome(221)); // false
     }
 
     public static boolean isPalindrome(String input) {
@@ -22,5 +25,14 @@ public class Exercise3 {
             }
         }
         return true;
+    }
+
+    public static boolean isPalindrome2(String input) {
+        StringBuilder palindrom = new StringBuilder(input);
+        return palindrom.reverse().toString().equalsIgnoreCase(input);
+    }
+
+    public static boolean isPalindrome(int input) {
+        return isPalindrome(String.valueOf(input));  //valueOf runs Integer.toString(input);
     }
 }
