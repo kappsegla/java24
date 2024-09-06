@@ -1,6 +1,7 @@
 package se.iths.exercise.week2;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Exercise1 {
@@ -13,12 +14,28 @@ public class Exercise1 {
         System.out.println("Skriv in andra numret: ");
         int num2 = scanner.nextInt();
 
-        System.out.println("Skriv in tredje numret: ");
+        System.out.println("Skriv in tredje numret:");
         int num3 = scanner.nextInt();
 
         System.out.println("Det minsta numret är : " + findMinimum(num1, num2, num3));
+        System.out.println(findMinimum(new int[]{num1, num2, num3}));
+        
 
+    }
 
+    /**
+     * Finds the minimum number in numbers array
+     *
+     * @param numbers
+     * @return Smallest number
+     */
+    //Datatyp + Array + Variabel!
+    public static int findMinimum(int[] numbers) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < numbers.length; i++) {
+            min = Math.min(min, numbers[i]);
+        }
+        return min;
     }
 
     public static int findMinimum(int a, int b, int c) {
