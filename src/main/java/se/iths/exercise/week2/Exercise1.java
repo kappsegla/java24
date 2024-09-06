@@ -1,6 +1,7 @@
 package se.iths.exercise.week2;
 
 
+import java.io.FileReader;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +20,6 @@ public class Exercise1 {
 
         System.out.println("Det minsta numret är : " + findMinimum(num1, num2, num3));
         System.out.println(findMinimum(new int[]{num1, num2, num3}));
-        
 
     }
 
