@@ -80,7 +80,7 @@ public class Exercise2 {
 
 
 
-        
+
         return digMax >= 2;
     }
 
