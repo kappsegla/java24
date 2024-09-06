@@ -2,9 +2,10 @@ package se.iths.exercise.week2;
 
 public class Exercise2 {
     public static void main(String[] args) {
-        System.out.println(isValidPassword("abc123defgäö"));
+        System.out.println(isValidPassword("abc123defgäö"));// äöå får ej användas
         System.out.println(isValidPassword("abc123def")); // 9 bokstäver
         System.out.println(isValidPassword("abc123defg!")); // ! är inte char eller digit
+        System.out.println(isValidPassword("abc123defgda"));
 
 
     }
@@ -19,7 +20,8 @@ public class Exercise2 {
             char digitsChar = password.charAt(i);
 
             // Check for a-z (letters)
-            if (Character.isLetter(digitsChar) && Character.isLowerCase(digitsChar)) {
+            if( digitsChar >= 'a' && digitsChar <= 'z' ) {
+            //if (Character.isLetter(digitsChar) && Character.isLowerCase(digitsChar)) {
                 continue;
             }
 
@@ -34,6 +36,51 @@ public class Exercise2 {
         }
 
         // Password is valid if it contains at least 2 digits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         return digMax >= 2;
     }
 
