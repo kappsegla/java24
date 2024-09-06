@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 
 public class Employee {
-    private String name;
+    private final String name;
     private int salary;
-    private LocalDate startDate;
+    private final LocalDate startDate;
 
     public Employee(String name, int salary, LocalDate startDate) {
         if (name.isBlank())
@@ -22,6 +22,11 @@ public class Employee {
 
     public int getSalary() {
         return salary;
+    }
+    
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public LocalDate getStartDate() {
