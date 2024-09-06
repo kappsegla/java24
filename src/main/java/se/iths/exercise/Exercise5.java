@@ -23,7 +23,7 @@ public class Exercise5 {
             int tal = 0;
             try {
                 tal = Integer.parseInt(arg);
-            }catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Fel format! Förväntade siffror");
             }
             max = Math.max(tal, max);

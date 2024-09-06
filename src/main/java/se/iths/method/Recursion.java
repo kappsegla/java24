@@ -16,19 +16,19 @@ public class Recursion {
         recursion();
     }
 
-    public static void tail(int n){
-        if( n == 1 )
+    public static void tail(int n) {
+        if (n == 1)
             return;
         else
             System.out.println(n);
-        tail(n-1);
+        tail(n - 1);
     }
 
-    public static void head(int n){
-        if( n == 0)
+    public static void head(int n) {
+        if (n == 0)
             return;
         else
-            head(n-1);
+            head(n - 1);
         System.out.println(n);
     }
 }

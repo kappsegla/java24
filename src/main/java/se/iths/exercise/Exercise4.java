@@ -1,8 +1,10 @@
 package se.iths.exercise;
+
 import java.util.Scanner;
+
 public class Exercise4 {
     public static void main(String[] args) {
-        Scanner scanner= new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("What day of the week is it? ");
         String dayOfWeek = scanner.nextLine().toLowerCase();

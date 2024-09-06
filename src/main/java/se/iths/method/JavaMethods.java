@@ -9,7 +9,7 @@ public class JavaMethods {
         System.out.println(max);
 
         String s = " Hej ";
-        System.out.println( s.trim() );
+        System.out.println(s.trim());
         System.out.println(1);
         System.out.println("Hej");
 

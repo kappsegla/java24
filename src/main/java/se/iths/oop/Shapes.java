@@ -20,7 +20,5 @@ public class Shapes {
         System.out.println("Color: " + rect2.getColor());
 
 
-
-
     }
 }
