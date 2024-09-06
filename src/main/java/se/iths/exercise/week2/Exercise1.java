@@ -1,8 +1,6 @@
 package se.iths.exercise.week2;
 
 
-import java.io.FileReader;
-import java.util.List;
 import java.util.Scanner;
 
 public class Exercise1 {
