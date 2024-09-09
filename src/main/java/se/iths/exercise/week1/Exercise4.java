@@ -1,4 +1,4 @@
-package se.iths.exercise;
+package se.iths.exercise.week1;
 
 import java.util.Scanner;
 

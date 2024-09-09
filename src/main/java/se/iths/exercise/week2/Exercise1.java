@@ -18,7 +18,6 @@ public class Exercise1 {
 
         System.out.println("Det minsta numret är : " + findMinimum(num1, num2, num3));
         System.out.println(findMinimum(new int[]{num1, num2, num3}));
-
     }
 
     /**
