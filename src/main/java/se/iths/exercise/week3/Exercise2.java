@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Exercise2 {
     public static void main(String[] args) {
-        String[] inArray = {"1", "2", "3", "4","2"};
+        String[] inArray = {"1", "2", "3", "4", "2"};
 
         System.out.println(Arrays.toString(copyWithExclusion(inArray, 0)));
         System.out.println(Arrays.toString(copyWithExclusion(inArray, 1)));
@@ -19,7 +19,7 @@ public class Exercise2 {
     /**
      * Creates a new array that is a copy of the original array, excluding any occurrences of the specified exclusion string.
      *
-     * @param org the original array of strings
+     * @param org             the original array of strings
      * @param exclusionString the string to be excluded from the new array
      * @return a new array containing all elements of the original array except those that match the exclusion string
      * @throws NullPointerException if the original array is null
@@ -33,8 +33,8 @@ public class Exercise2 {
         }
         String[] tempArray = new String[org.length - lost];
         int j = 0;
-        for (String s: org){
-            if (!Objects.equals(s, exclusionString)){
+        for (String s : org) {
+            if (!Objects.equals(s, exclusionString)) {
                 tempArray[j++] = s;
             }
         }
