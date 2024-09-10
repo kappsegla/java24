@@ -16,6 +16,14 @@ public class Exercise2 {
         System.out.println(Arrays.toString(copyWithExclusion(inArray, "2")));
     }
 
+    /**
+     * Creates a new array that is a copy of the original array, excluding any occurrences of the specified exclusion string.
+     *
+     * @param org the original array of strings
+     * @param exclusionString the string to be excluded from the new array
+     * @return a new array containing all elements of the original array except those that match the exclusion string
+     * @throws NullPointerException if the original array is null
+     */
     public static String[] copyWithExclusion(String[] org, String exclusionString) {
         int lost = 0;
         for (String s : org) {
