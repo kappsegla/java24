@@ -17,10 +17,10 @@ public class MemberLedger {
     }
 
     public int fee(Person p) {
-        if( p.name().equalsIgnoreCase("Kalle") ) {
+        if (p.name().equalsIgnoreCase("Kalle")) {
             return 200;
         }
-        if( p.age() < 25 ) {
+        if (p.age() < 25) {
             return 200;
         }
         return 350;
