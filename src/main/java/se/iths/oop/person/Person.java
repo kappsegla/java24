@@ -1,4 +1,4 @@
-package se.iths.oop;
+package se.iths.oop.person;
 
 import java.time.LocalDate;
 
