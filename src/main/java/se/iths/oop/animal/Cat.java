@@ -16,6 +16,11 @@ public class Cat extends Animal {
         System.out.println("Mjau");
     }
 
+    public static void printName(){
+        System.out.println(Cat.class.getSimpleName());
+    }
+
+
     @Override
     public String toString() {
         return "Cat{" +

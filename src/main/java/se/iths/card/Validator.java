@@ -15,7 +15,7 @@ public class Validator {
                 return false;
             }
             int num = Integer.parseInt(String.valueOf(cardNumber.charAt(i)));
-            if (i % 2 == 0) { //Even index multiply by 2
+            if (i % 2 == 0) {  //Even index multiply by 2
                 num *= 2;
                 if (num > 9)  //If result > 9
                     num = num - 9; // 1 + (num - 10) Add digits together 16-> 1 + 6

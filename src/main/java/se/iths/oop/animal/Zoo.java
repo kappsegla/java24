@@ -23,19 +23,15 @@ public class Zoo {
 
         Animal b = new Cat("Misse");
         b.talk();
-        //b = d;
-        //b.talk();
+
+        Animal.printName();
+        Cat.printName();
+        b.printName();
+        if( b instanceof Cat cat)
+            cat.printName();
 
 
 
-
-//        try {
-//            throw new IllegalArgumentException();
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("IllegalArgumentException");
-//        } catch (Exception ex) {
-//            System.out.println("Exception");
-//        }
 
     }
 }
