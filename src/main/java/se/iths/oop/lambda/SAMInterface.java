@@ -18,7 +18,6 @@ class SamDemo {
 
         //Anonymous class, might be called SamDemo$1
         SAMInterface sam2 = () -> System.out.println("Hi from lambda");
-
         sam2.sayHi();
 
     }
