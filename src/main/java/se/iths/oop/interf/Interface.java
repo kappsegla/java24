@@ -27,15 +27,13 @@ public class Interface implements Serializable {
         System.out.println(list.getFirst().length());
         System.out.println(list.getLast().length());
 
-        List<String> immutableList = List.of("A","B","C","D");
-        immutableList.add("E");  //Will throw unsupportedException because List.of returns ImmutableCollection
-
-
+        List<String> immutableList = List.of("A", "B", "C", "D");
+        //immutableList.add("E");  //Will throw unsupportedException because List.of returns ImmutableCollection
     }
 
 
-    public static void checkIfSerializable(Object o){
-        if( o instanceof Serializable )
+    public static void checkIfSerializable(Object o) {
+        if (o instanceof Serializable)
             System.out.println("Serializable: " + o.getClass().getSimpleName());
         else
             System.out.println("Not Serializable: " + o.getClass().getSimpleName());
