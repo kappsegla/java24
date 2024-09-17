@@ -17,8 +17,17 @@ class SamDemo {
         sam.sayHi();
 
         //Anonymous class, might be called SamDemo$1
-        SAMInterface sam2 = () -> System.out.println("Hi from lambda");
+        SAMInterface sam2 = new SAMInterface() {
+            @Override
+            public void sayHi() {
+                System.out.println("Hi from lambda");
+            }
+        };
         sam2.sayHi();
+
+        //Lambda implementation of a single abstract method interface
+        SAMInterface sam3 = () -> System.out.println("Hi from lambda");
+        sam3.sayHi();
 
     }
 }
