@@ -1,6 +1,7 @@
 package se.iths;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class SortingOfData {
     public static void main(String[] args) {
@@ -11,7 +12,9 @@ public class SortingOfData {
                 new ValueAndIndex(4, 3),
                 new ValueAndIndex(2, 4)};
 
-        Arrays.sort(values);
+        //Arrays.sort(values);
+        //Arrays.sort(values, (o1, o2)-> o1.value() - o2.value() );
+        Arrays.sort(values, Comparator.comparingInt(ValueAndIndex::value).reversed());
 
         for (ValueAndIndex v : values) {
             System.out.println("Index: " + v.index() + " Value: " + v.value());
@@ -19,9 +22,6 @@ public class SortingOfData {
     }
 }
 
-record ValueAndIndex(int value, int index) implements Comparable<ValueAndIndex> {
-    @Override
-    public int compareTo(ValueAndIndex other) {
-        return this.value - other.value;
-    }
+record ValueAndIndex(int value, int index) {
+
 }
