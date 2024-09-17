@@ -17,12 +17,8 @@ class SamDemo {
         sam.sayHi();
 
         //Anonymous class, might be called SamDemo$1
-        SAMInterface sam2 = new SAMInterface() {
-            @Override
-            public void sayHi() {
-                System.out.println(this.getClass().getName());
-            }
-        };
+        SAMInterface sam2 = () -> System.out.println("Hi from lambda");
+
         sam2.sayHi();
 
     }
