@@ -34,6 +34,12 @@ class SamDemo {
         SAMInterface sam4 = () -> printGreeting();
         sam4.sayHi();
 
+        doSomething(sam4);
+        doSomething(() -> System.out.println("Lambda created direct in the method call"));
+    }
+
+    private static void doSomething(SAMInterface whatTodo) {
+        whatTodo.sayHi();
     }
 
     private static void printGreeting() {
