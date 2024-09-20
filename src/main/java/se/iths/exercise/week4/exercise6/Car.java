@@ -1,6 +1,6 @@
 package se.iths.exercise.week4.exercise6;
 
-public class Car extends Vehicle {
+public final class Car extends Vehicle {
     private int numberOfSeats;
 
     public Car(String registrationNumber, int numberOfSeats) {
