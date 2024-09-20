@@ -4,24 +4,25 @@ import java.util.Arrays;
 
 public class Zoo {
     private final Animal[] animals = new Animal[5];
+    private int size;
 
     public static void main(String[] args) {
         Zoo zoo = new Zoo();
-        zoo.animals[0] = new Cat();
-        zoo.animals[1] = new Horse();
-        zoo.animals[2] = new Snake();
-        zoo.animals[3] = new Frog();
-        zoo.animals[4] = new Cat();
-
-        if (zoo.animals[0].hashCode() == zoo.animals[4].hashCode()) {
-            System.out.println("Same hashCode");
-        }
-
-        if (zoo.animals[0].equals(zoo.animals[4])) {
-            System.out.println("Same type of animal");
-        }
-
+        zoo.add(new Cat());
+        zoo.add(new Horse());
+        zoo.add(new Snake());
+        zoo.add(new Frog());
+        zoo.add(new Cat());
+        
         Arrays.sort(zoo.animals);
         System.out.println(Arrays.toString(zoo.animals));
+    }
+
+    public void add(Animal animal){
+        //Todo: Add protection from adding more animals than array size?
+        animals[size++] = animal;
+    }
+    public Animal get(int index){
+        return animals[index];
     }
 }
