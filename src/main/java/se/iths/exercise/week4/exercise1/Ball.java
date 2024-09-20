@@ -1,4 +1,4 @@
-package se.iths.exercise.week4;
+package se.iths.exercise.week4.exercise1;
 
 public abstract class Ball implements Tossable {
     private String brandName;
