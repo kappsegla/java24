@@ -1,12 +1,7 @@
 package se.iths.exercise.week4;
 
-public class Ball implements Tossable {
+public abstract class Ball implements Tossable {
     private String brandName;
-
-    @Override
-    public void toss() {
-        System.out.println("Tossing ball");
-    }
 
     public Ball(String brandName) {
         this.brandName = brandName;
@@ -16,7 +11,6 @@ public class Ball implements Tossable {
         return brandName;
     }
 
-    public void bounce() {
-        System.out.println("Bounce ball");
-    }
+    public abstract void bounce();
+
 }
