@@ -30,6 +30,10 @@ public class Zoo implements Iterable<Animal> {
 
     @Override
     public Iterator<Animal> iterator() {
+        // The code below works since arrays implements the Iterator interface
+        //return Arrays.stream(animals).iterator();
+
+        // However this gives us more freedom to decide what we want to do
         return new Iterator<>() {
             int index = 0;
 
