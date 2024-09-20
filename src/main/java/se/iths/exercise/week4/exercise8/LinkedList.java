@@ -10,11 +10,11 @@ public class LinkedList {
         }
 
         Node current = head;
-        while (current.next != null) {
-         current = current.next;
+        while (current.nextNode != null) {
+         current = current.nextNode;
         }
         System.out.println("Added pointer to: " + data + " from node " + current.data);
-        current.next = new Node(data);
+        current.nextNode = new Node(data);
     }
 
     public boolean isEmpty() {
@@ -25,12 +25,13 @@ public class LinkedList {
         LinkedList list = new LinkedList();
         list.add("Grillkorv");
         list.add("Hello, World!");
+        list.add("Martin");
     }
 }
 
 class Node {
     final String data;
-    Node next;
+    Node nextNode;
 
     public Node(String data) {
         this.data = data;
