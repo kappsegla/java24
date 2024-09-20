@@ -1,8 +1,9 @@
 package se.iths.exercise.week4.exercise2;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class Zoo {
+public class Zoo implements Iterable<Animal> {
     private final Animal[] animals = new Animal[5];
     private int size;
 
@@ -15,13 +16,40 @@ public class Zoo {
         zoo.add(new Cat());
         
         Arrays.sort(zoo.animals);
-        System.out.println(Arrays.toString(zoo.animals));
+        for(Animal animal : zoo){
+            System.out.println(animal);
+        }
+        // What an iterator does behind the scene
+//        Iterator<Animal> iterator = zoo.iterator();
+//        while (iterator.hasNext()) {
+//            Animal animal = iterator.next();
+//            System.out.println(animal);
+//        }
+        //System.out.println(Arrays.toString(zoo.animals));
+    }
+
+    @Override
+    public Iterator<Animal> iterator() {
+        return new Iterator<>() {
+            int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < animals.length;
+            }
+
+            @Override
+            public Animal next() {
+                return animals[index++];
+            }
+        };
     }
 
     public void add(Animal animal){
         //Todo: Add protection from adding more animals than array size?
         animals[size++] = animal;
     }
+
     public Animal get(int index){
         return animals[index];
     }
