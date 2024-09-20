@@ -2,7 +2,7 @@ package se.iths.exercise.week4.exercise2;
 
 import java.util.Objects;
 
-public abstract class Animal {
+public abstract class Animal implements Comparable<Animal> {
     private final String speciesName;
     private int size;
 
@@ -37,9 +37,14 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return Animal.class.getName() + "{" +
+        return this.getClass().getSimpleName() + "{" +
                "speciesName='" + speciesName + '\'' +
                ", size=" + size +
                '}';
+    }
+
+    @Override
+    public int compareTo(Animal o) {
+        return Integer.compare(size, o.size);
     }
 }
