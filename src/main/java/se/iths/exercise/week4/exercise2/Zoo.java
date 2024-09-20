@@ -2,6 +2,7 @@ package se.iths.exercise.week4.exercise2;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 public class Zoo implements Iterable<Animal> {
     private final Animal[] animals = new Animal[5];
@@ -14,18 +15,30 @@ public class Zoo implements Iterable<Animal> {
         zoo.add(new Snake());
         zoo.add(new Frog());
         zoo.add(new Cat());
-        
+
         Arrays.sort(zoo.animals);
-        for(Animal animal : zoo){
+        for (Animal animal : zoo) {
             System.out.println(animal);
         }
-        // What an iterator does behind the scene
+
+        zoo.forEach(System.out::println);
+
 //        Iterator<Animal> iterator = zoo.iterator();
+        // What an iterator does behind the scene
 //        while (iterator.hasNext()) {
 //            Animal animal = iterator.next();
 //            System.out.println(animal);
 //        }
         //System.out.println(Arrays.toString(zoo.animals));
+    }
+
+    //We don't need to override this because Iterable has a default implementation.
+    @Override
+    public void forEach(Consumer<? super Animal> action) {
+        for (Animal animal : animals) {
+            // This runs the code we provided for each item/index/animal
+            action.accept(animal);
+        }
     }
 
     @Override
@@ -49,12 +62,12 @@ public class Zoo implements Iterable<Animal> {
         };
     }
 
-    public void add(Animal animal){
+    public void add(Animal animal) {
         //Todo: Add protection from adding more animals than array size?
         animals[size++] = animal;
     }
 
-    public Animal get(int index){
+    public Animal get(int index) {
         return animals[index];
     }
 }
