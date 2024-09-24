@@ -33,6 +33,11 @@ public class FizzBuzz {
         };
     }
 
+    //Pair, 2-tuple, couple, ordered pair
     record Values(boolean mod3, boolean mod5) {
+    }
+
+    public static Values test(){
+        return new Values(true, false);
     }
 }
