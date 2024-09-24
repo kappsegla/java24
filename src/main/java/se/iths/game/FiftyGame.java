@@ -16,9 +16,17 @@ public class FiftyGame {
     private void play() {
         //Slumpa value 1-50
         int value = rand.nextInt(RAND_BOUND);
-        System.out.print("Make a guess between 1 and 50: ");
-        int guess = sc.nextInt();
-
-
+        while (true) {
+            System.out.print("Make a guess between 1 and 50: ");
+            int guess = sc.nextInt();
+            if (guess == value) {
+                System.out.println("Congratulations! You win!");
+                return;
+            } else if (guess < value) {
+                System.out.println("Your guess is too low!");
+            } else {
+                System.out.println("Your guess is too high!");
+            }
+        }
     }
 }
