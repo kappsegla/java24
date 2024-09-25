@@ -27,7 +27,7 @@ public class Game {
             System.out.println(alternatives);
             String input = scanner.nextLine();
             switch (input) {
-                case "g" -> currentRoom = currentRoom;
+                case "g" -> go();
                 case "d" -> currentRoom.describe();
                 case "t" -> currentRoom.getItems().forEach(player::addItemToBackpack);
                 case "i" -> player.getBackpack().forEach(System.out::println);
@@ -35,6 +35,14 @@ public class Game {
             }
         }
         System.out.println("Little chicken went home!");
+    }
+
+    private void go() {
+        //We are in current room..
+        //Ask current room where we can go?
+        //Ask where to go
+        //Update current room with the new room we navigated too
+
     }
 
     private void initialize() {

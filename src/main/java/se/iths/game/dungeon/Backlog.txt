@@ -17,4 +17,4 @@ Lägg till navigering i play i en loop som frågar efter vad spelaren vill göra
 
 "Available commands: go, take, inventory, quit"
 
-Låt varje Room lagra vilka rum som det är anslutet till. North, South, West, East
+Låt varje Room lagra vilka rum som det är anslutet till. North, South, East, West
