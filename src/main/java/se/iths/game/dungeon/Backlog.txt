@@ -6,7 +6,7 @@
 I spelet har vi en Player som har en magisk ryggsäck som rymmer hur mycket som helst
 men endast en sak av varje sort. Tex ett guldmynt eller ett svärd.
 
-Skapa en klass som representerar detta och låter oss:
+✅Skapa en klass som representerar detta och låter oss:
 	- Lägga till items
 	- Ta bort items
 	- Returnera alla items..
