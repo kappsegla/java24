@@ -2,10 +2,7 @@ package se.iths.game.dungeon;
 
 import se.iths.game.dungeon.items.Item;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Room {
     private String name;
@@ -39,6 +36,10 @@ public class Room {
 
     public String getRoomName(Direction direction) {
         return directions.getOrDefault(direction, this.name);
+    }
+
+    public Set<Direction> getDirections() {
+        return directions.keySet();
     }
 
 }
