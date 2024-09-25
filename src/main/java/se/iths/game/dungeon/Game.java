@@ -6,23 +6,35 @@ import se.iths.game.dungeon.items.Spider;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Game {
     Map<String, Room> rooms = new HashMap<>();
+    Player player = new Player();
+    Room currentRoom;
 
     public static void main(String[] args) {
         new Game().play();
     }
 
     private void play() {
+        Scanner scanner = new Scanner(System.in);
         initialize();
+        String alternatives = "(g)o, (d)escribe room, (t)ake, (i)nventory, (q)uit";
+        boolean quit = false;
 
-        Player player = new Player();
-        player.addItemToBackpack(new Gold());
-        player.addItemToBackpack(new Spider());
-        player.addItemToBackpack(new Gold());
-
-        player.getBackpack().forEach(System.out::println);
+        while (!quit) {
+            System.out.println(alternatives);
+            String input = scanner.nextLine();
+            switch (input) {
+                case "g" -> currentRoom = currentRoom;
+                case "d" -> currentRoom.describe();
+                case "t" -> currentRoom.getItems().forEach(player::addItemToBackpack);
+                case "i" -> player.getBackpack().forEach(System.out::println);
+                case "q" -> quit = true;
+            }
+        }
+        System.out.println("Little chicken went home!");
     }
 
     private void initialize() {
@@ -33,6 +45,8 @@ public class Game {
         rooms.put("room1", room1);
         rooms.put("room2", room2);
         rooms.put("room3", room3);
+
+        currentRoom = room1;
     }
 
 }

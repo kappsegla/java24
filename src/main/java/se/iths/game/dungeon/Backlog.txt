@@ -11,7 +11,7 @@ men endast en sak av varje sort. Tex ett guldmynt eller ett svärd.
 	- Ta bort items
 	- Returnera alla items..
 
-Initializera ett antal rooms i Game  Lagra i en HashMap med namnet som key.
+✅Initializera ett antal rooms i Game  Lagra i en HashMap med namnet som key.
 
 Lägg till navigering i play i en loop som frågar efter vad spelaren vill göra:
 

@@ -25,4 +25,9 @@ public class Room {
         }
         //items.forEach(Item::describe);
     }
+
+    public List<Item> getItems() {
+        return List.copyOf(items);
+    }
+
 }
