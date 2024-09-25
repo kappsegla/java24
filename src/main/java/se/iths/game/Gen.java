@@ -6,7 +6,7 @@ import se.iths.oop.animal.Cat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gen<T extends Animal> {
+public class Gen<T> {
 
     private T ob;
 
