@@ -1,6 +1,7 @@
 package se.iths.collections;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -25,6 +26,8 @@ public class SetDemo {
         m3.setValue(2);
         mutableSet.add(new Mutable(4));
         mutableSet.forEach(System.out::println);
+
+        Set<Mutable> mutableSet2 = new LinkedHashSet<>();
     }
 }
 
