@@ -13,7 +13,6 @@ public class Game {
     private void play() {
         var room = new Room("Room1", List.of(new Gold(), new Spider()));
         room.describe();
-
     }
 
 }

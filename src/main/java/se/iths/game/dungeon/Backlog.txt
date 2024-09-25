@@ -1,0 +1,20 @@
+✅Skapa en Room klass med ett namn och en metod som skriver ut vad som finns i rummet.
+
+✅Item klass  (Varje rum ska ha 0 eller flera Items)
+✅Item- Gold, Weapon, Spider,...
+
+I spelet har vi en Player som har en magisk ryggsäck som rymmer hur mycket som helst
+men endast en sak av varje sort. Tex ett guldmynt eller ett svärd.
+
+Skapa en klass som representerar detta och låter oss:
+	- Lägga till items
+	- Ta bort items
+	- Returnera alla items..
+
+Initializera ett antal rooms i Game  Lagra i en HashMap med namnet som key.
+
+Lägg till navigering i play i en loop som frågar efter vad spelaren vill göra:
+
+"Available commands: go, take, inventory, quit"
+
+Låt varje Room lagra vilka rum som det är anslutet till. North, South, West, East
