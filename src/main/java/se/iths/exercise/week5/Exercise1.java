@@ -1,6 +1,7 @@
 package se.iths.exercise.week5;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Exercise1 {
 
@@ -25,12 +26,28 @@ public class Exercise1 {
         // index0 still returns "Coffee" even if we removed it
         System.out.println(list);
         // 6. Checking if the ArrayList is empty
+        if (list.isEmpty())
+            System.out.println("List is empty");
+        // 7. Getting the size of the ArrayList
+        System.out.println("List size: " + list.size());
+        // 8. Checks if an object exists in the ArrayList.
+        list.add("Tea");
+        list.add("Tea");
+        String tea = "Tea";
+        if (list.contains(tea)) System.out.println("List contains Tea!");
+        // 8a. What index does tea have?
+        int firstIndex = list.indexOf("Tea");
+        System.out.println("Index of tea: " + firstIndex);
+        int lastIndex = list.lastIndexOf("Tea");
+        System.out.println("Last index of tea: " + lastIndex);
 
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(tea)) {
+                System.out.println("We found tea on index " + i);
+            }
+        }
+        // 9. Write a custom sorting of the objects in the ArrayList with an implementation of Comparator .
+        list.sort(Comparator.comparing(o -> o.substring(1)));
+        System.out.println(list);
     }
-
-
-// 6. Checking if the ArrayList is empty
-// 7. Getting the size of the ArrayList
-// 8. Checks if an object exists in the ArrayList.
-// 9. Write a custom sorting of the objects in the ArrayList with an implementation of Comparator .
 }
