@@ -27,5 +27,8 @@ public class Exercise2 {
     public static void main(String[] args) {
         List<String> list = arrayToList(new String[] { "a", "b", "c" });
         System.out.println(list);
+
+        List<String> strings = List.of("a", "b", "c");
+        arrayToList(strings.toArray(new String[0]));
     }
 }
