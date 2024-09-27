@@ -68,7 +68,7 @@ class SortedTree {
 
         Stack<Node> stack = new Stack<>();
         Node current = root;
-        
+
         while (current != null || !stack.isEmpty()) {
             // Reach the leftmost node of the current node
             while (current != null) {
