@@ -44,9 +44,19 @@ class SortedTree {
     }
 
     void printAll() {
-
-
+        traverseInOrder(root);
     }
+
+    void traverseInOrder(Node node) {
+        if (node == null) return;
+        //traverse left
+        traverseInOrder(node.left);
+        //print ourself
+        System.out.println(node.value + " ");
+        //traverse right
+        traverseInOrder(node.right);
+    }
+
 
     boolean isEmpty() {
         return root == null;
