@@ -16,16 +16,19 @@ public class Exercise1 {
         String first = list.getFirst();
         String last = list.getLast();
         // 4. Modifying an element in the ArrayList
-
-
-
+        list.set(1, "Espresso");
+        // 5. Removing an element from the ArrayList
+        //String removedItem = list.remove(1);
+        boolean removed = list.remove("Coffee");
+        // All variables that previously referenced the removed value
+        // will still have a reference to that value. This is why
+        // index0 still returns "Coffee" even if we removed it
+        System.out.println(list);
+        // 6. Checking if the ArrayList is empty
 
     }
 
 
-
-
-// 5. Removing an element from the ArrayList
 // 6. Checking if the ArrayList is empty
 // 7. Getting the size of the ArrayList
 // 8. Checks if an object exists in the ArrayList.
