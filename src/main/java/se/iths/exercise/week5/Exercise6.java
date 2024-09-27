@@ -9,6 +9,26 @@ public class Exercise6 {
     public static Map<String, Set<Integer>> index = new HashMap<>();
 
     public static void main(String[] args) {
+        List<String> quotes = initialize();
+        buildIndex(quotes);
+        var indices = index.get("java");
+        System.out.println(indices);
+        System.out.println(index.getOrDefault("developer", Set.of()));
+        System.out.println(index.getOrDefault("glasses", Set.of())); // Returns null unless we specify default value
+    }
+
+    private static void buildIndex(List<String> quotes) {
+        for (int i = 0; i < quotes.size(); i++) {
+            Set<String> words = createSetFromString(quotes.get(i));
+
+            for (String word : words) {
+                word = word.replaceAll("[!?.,:;]", "");
+                index.computeIfAbsent(word, _ -> new HashSet<>()).add(i);
+            }
+        }
+    }
+
+    private static List<String> initialize() {
         List<String> quotes = new ArrayList<>();
 
         quotes.add("Why do Java developers wear glasses? Because they can't C#!");
@@ -21,13 +41,6 @@ public class Exercise6 {
         quotes.add("Why do Python programmers have low self-esteem? Because they're constantly comparing themselves to others.");
         quotes.add("Why did the developer go broke? Because he used up all his cache.");
         quotes.add("Why do programmers hate nature? It has too many bugs.");
-
-        for (int i = 0; i < quotes.size(); i++) {
-            Set<String> words = createSetFromString(quotes.get(i));
-
-        }
-
-
-
+        return quotes;
     }
 }
