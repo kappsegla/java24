@@ -1,5 +1,7 @@
 package se.iths.exercise.week5;
 
+import java.util.Stack;
+
 public class Exercise7 {
     public static void main(String[] args) {
         SortedTree tree = new SortedTree();
@@ -11,6 +13,8 @@ public class Exercise7 {
         tree.add(7);
         tree.add(9);
         tree.printAll();  //3 4 5 6 7 8 9
+        System.out.println();
+        tree.printAllUsingLoop();
     }
 }
 
@@ -52,10 +56,36 @@ class SortedTree {
         //traverse left
         traverseInOrder(node.left);
         //print ourself
-        System.out.println(node.value + " ");
+        System.out.print(node.value + " ");
         //traverse right
         traverseInOrder(node.right);
     }
+
+    void printAllUsingLoop() {
+        if (root == null) {
+            return;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        Node current = root;
+        
+        while (current != null || !stack.isEmpty()) {
+            // Reach the leftmost node of the current node
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            // Current must be null at this point
+            current = stack.pop();
+            System.out.print(current.value + " ");
+
+            // Visit the right subtree
+            current = current.right;
+        }
+        System.out.println();
+    }
+
 
 
     boolean isEmpty() {
