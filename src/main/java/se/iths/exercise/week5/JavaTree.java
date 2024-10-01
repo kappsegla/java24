@@ -15,6 +15,5 @@ public class JavaTree {
         sortedTree.add(9);
 
         System.out.println(sortedTree);
-
     }
 }
