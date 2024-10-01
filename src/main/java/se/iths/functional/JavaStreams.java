@@ -25,7 +25,26 @@ public class JavaStreams {
         }
         System.out.println(Collections.unmodifiableCollection(carsWithAwd));
 
+        var makes = cars.stream()
+                .map(Car::make)
+                .toList();
+
+        System.out.println(makes);
+
+        var count = cars.stream()
+                .filter(car -> car.horsepower() > 200)
+                .count();
+
+        System.out.println(count);
+
+        var sumOfHorsepowers = cars.stream()
+                .mapToInt(Car::horsepower)
+                .sum();
+
+        System.out.println(sumOfHorsepowers);
+
     }
+
 
     private static List<Car> initialize() {
         return List.of(
