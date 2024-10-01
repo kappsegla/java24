@@ -1,6 +1,7 @@
 package se.iths.functional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class JavaStreams {
@@ -9,6 +10,7 @@ public class JavaStreams {
         List<Car> cars = initialize();
         //Functional style programming
         var awdCars = cars.stream()
+                .peek(System.out::println)
                 .filter(Car::awd)
                 .toList();
 
@@ -21,7 +23,7 @@ public class JavaStreams {
                 carsWithAwd.add(car);
             }
         }
-        System.out.println(carsWithAwd);
+        System.out.println(Collections.unmodifiableCollection(carsWithAwd));
 
     }
 
