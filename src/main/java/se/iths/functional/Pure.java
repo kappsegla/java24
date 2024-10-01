@@ -29,7 +29,6 @@ public class Pure {
     }
 
 
-
     public static void main(String[] args) {
         System.out.println(add(1, 2));
         System.out.println(count());
@@ -39,7 +38,6 @@ public class Pure {
         list.forEach(System.out::println);
 
         recursion(10);
-
     }
 
     public static void recursion(int value) {
