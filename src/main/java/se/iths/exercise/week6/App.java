@@ -15,8 +15,23 @@ public class App {
         //employeesWithLowestSalary();
         //employeesWorkingOnMoreThanOneProject();
         //projectNames();
-        groupEmployeesByNumberOfProjects();
+        //groupEmployeesByNumberOfProjects();
+        checkIfAllEmployeesHasSalaryOver(2_000_000);
 
+    }
+
+    public static void checkIfAllEmployeesHasSalaryOver(int amount) {
+//        boolean allOverAmount = true;
+//
+//        for (Employee employee : employees) {
+//            if (employee.salary() < amount) {
+//                allOverAmount = false;
+//                break;
+//            }
+//        }
+//        System.out.println(allOverAmount);
+
+        System.out.println(employees.stream().allMatch(e -> e.salary() > amount));
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
