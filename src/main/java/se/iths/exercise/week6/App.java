@@ -89,7 +89,8 @@ public class App {
 
     public static void groupEmployeesByNumberOfProjects() {
         employees.stream()
-                .collect(Collectors.groupingBy(e -> e.projects().size()))
+                .collect(Collectors.groupingBy(e -> e.projects().size(),   //Key for the map
+                        Collectors.mapping(Employee::firstName, Collectors.toList())))  //Value to put under key. .joining(",")
                 .forEach((key, value) -> System.out.println(key + ": " + value));
     }
 
