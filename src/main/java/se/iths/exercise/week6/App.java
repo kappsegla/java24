@@ -12,7 +12,7 @@ public class App {
         //numberOfEmployees();
         //employeeWithHighestSalary();
         //employeeWithLowestSalary();
-        employeesWithLowestSalary();
+
         //employeesWorkingOnMoreThanOneProject();
         //projectNames();
         //groupEmployeesByNumberOfProjects();
@@ -23,7 +23,10 @@ public class App {
         //limitFive();
         //skipFive();
 
+        //Finding two results at the same time using teeing
         //lowestAndHighestSalary();
+        //Finding list of all employees with lowest salary.
+        //employeesWithLowestSalary();
 
     }
 
