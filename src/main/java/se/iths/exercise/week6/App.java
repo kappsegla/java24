@@ -17,7 +17,16 @@ public class App {
         //projectNames();
         //groupEmployeesByNumberOfProjects();
         //checkIfAllEmployeesHasSalaryOver(2_000_000);
-        checkIfAnyEmployeeHasSalaryUnder(1_000_000);
+        //checkIfAnyEmployeeHasSalaryUnder(1_000_000);
+        totalSalaryOfEmployees();
+    }
+
+    public static void totalSalaryOfEmployees() {
+        double sum = employees.stream()
+                .mapToDouble(Employee::salary)
+                .sum();
+
+        System.out.printf("Sum: %,.2f", sum);
     }
 
     public static void checkIfAnyEmployeeHasSalaryUnder(int amount) {
