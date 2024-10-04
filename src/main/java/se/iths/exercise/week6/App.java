@@ -19,7 +19,17 @@ public class App {
         //checkIfAllEmployeesHasSalaryOver(2_000_000);
         //checkIfAnyEmployeeHasSalaryUnder(1_000_000);
         //totalSalaryOfEmployees();
-        sortEmployeesByAscSalary();
+        //sortEmployeesByAscSalary();
+        //limitFive();
+        skipFive();
+    }
+
+    public static void skipFive() {
+        employees.stream().skip(5).forEach(System.out::println);
+    }
+
+    public static void limitFive() {
+        employees.stream().limit(5).forEach(System.out::println);
     }
 
     public static void sortEmployeesByAscSalary() {
