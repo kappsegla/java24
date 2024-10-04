@@ -11,8 +11,8 @@ public class App {
 
         //allEmployeesWithSalaryOver(2_000_000);
         //numberOfEmployees();
-        employeeWithHighestSalary();
-
+        //employeeWithHighestSalary();
+        employeeWithLowestSalary();
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -29,7 +29,14 @@ public class App {
 
     public static void employeeWithHighestSalary() {
         Optional<Employee> employee = employees.stream()
-                .max(Comparator.comparing(Employee::salary));
+                .max(Comparator.comparingInt(Employee::salary));
+
+        employee.ifPresent(System.out::println);
+    }
+
+    public static void employeeWithLowestSalary() {
+        Optional<Employee> employee = employees.stream()
+                .min(Comparator.comparingInt(Employee::salary));
 
         employee.ifPresent(System.out::println);
     }
