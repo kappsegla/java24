@@ -18,7 +18,14 @@ public class App {
         //groupEmployeesByNumberOfProjects();
         //checkIfAllEmployeesHasSalaryOver(2_000_000);
         //checkIfAnyEmployeeHasSalaryUnder(1_000_000);
-        totalSalaryOfEmployees();
+        //totalSalaryOfEmployees();
+        sortEmployeesByAscSalary();
+    }
+
+    public static void sortEmployeesByAscSalary() {
+        employees.stream()
+                .sorted(Comparator.comparingInt(Employee::salary))
+                .forEach(System.out::println);
     }
 
     public static void totalSalaryOfEmployees() {
