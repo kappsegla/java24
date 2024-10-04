@@ -12,7 +12,7 @@ public class App {
         //numberOfEmployees();
         //employeeWithHighestSalary();
         //employeeWithLowestSalary();
-        //employeesWithLowestSalary();
+        employeesWithLowestSalary();
         //employeesWorkingOnMoreThanOneProject();
         //projectNames();
         //groupEmployeesByNumberOfProjects();
@@ -23,12 +23,12 @@ public class App {
         //limitFive();
         //skipFive();
 
-        lowestAndHighestSalary();
+        //lowestAndHighestSalary();
 
     }
 
     public static void lowestAndHighestSalary() {
-         var list = employees.stream()
+        var list = employees.stream()
                 .map(ShortEmployee::new)
                 .collect(Collectors.teeing(
                         Collectors.minBy(Comparator.comparingInt(ShortEmployee::salary)),
@@ -39,15 +39,15 @@ public class App {
                 ));//.forEach(System.out::println);
     }
 
-record ShortEmployee(String name, int salary){
-       public ShortEmployee(Employee employee){
-           this(employee.firstName() + " " + employee.lastName(), employee.salary());
-       }
+    record ShortEmployee(String name, int salary) {
+        public ShortEmployee(Employee employee) {
+            this(employee.firstName() + " " + employee.lastName(), employee.salary());
+        }
 
-       public static ShortEmployee create(Employee employee){
-           return new ShortEmployee(employee.firstName() + " " + employee.lastName(), employee.salary());
-       }
-}
+        public static ShortEmployee create(Employee employee) {
+            return new ShortEmployee(employee.firstName() + " " + employee.lastName(), employee.salary());
+        }
+    }
 
 //    record MinMax(Optional<Employee> a, Optional<Employee> b) {
 //    }
@@ -154,13 +154,6 @@ record ShortEmployee(String name, int salary){
                 .forEach(System.out::println);  //forEach from Iterable interface
     }
 
-    public static void employeesWithLowestSalary() {
-        List<Employee> lowestSalaryEmployees = employees.stream()
-                .reduce(new ArrayList<Employee>(), App::keepIfLowest, App::keepIfLowestCombiner);
-
-        lowestSalaryEmployees.forEach(System.out::println);
-    }
-
     public static void groupEmployeesByNumberOfProjects() {
         employees.stream()
                 .collect(Collectors.groupingBy(e -> e.projects().size(),   //Key for the map
@@ -168,17 +161,37 @@ record ShortEmployee(String name, int salary){
                 .forEach((key, value) -> System.out.println(key + ": " + value));
     }
 
-    private static ArrayList<Employee> keepIfLowest(ArrayList<Employee> list, Employee employee) {
+    //https://stackoverflow.com/questions/22577197/java-8-streams-collect-vs-reduce
+    public static void employeesWithLowestSalary() {
+        List<Employee> lowestSalaryEmployees = employees.stream()
+                .parallel()
+                .collect(
+                        ArrayList::new,
+                        App::keepIfLowest,
+                        App::keepIfLowestCombiner);
+
+        lowestSalaryEmployees.forEach(System.out::println);
+    }
+
+    private static void keepIfLowest(List<Employee> list, Employee employee) {
+        System.out.println(Thread.currentThread().getName());
         if (list.isEmpty() || employee.salary() < list.get(0).salary()) {
             list.clear();
             list.add(employee);
         } else if (employee.salary() == list.get(0).salary()) {
             list.add(employee);
         }
-        return list;
     }
 
-    private static ArrayList<Employee> keepIfLowestCombiner(List<Employee> left, List<Employee> right) {
-        throw new UnsupportedOperationException();
+    private static void keepIfLowestCombiner(List<Employee> left, List<Employee> right) {
+        if (left.isEmpty())
+            return;
+        if (right.isEmpty())
+            return;
+        if (left.get(0).salary() < right.get(0).salary())
+            return;
+        if (right.get(0).salary() < left.get(0).salary())
+            return;
+        left.addAll(right);
     }
 }
