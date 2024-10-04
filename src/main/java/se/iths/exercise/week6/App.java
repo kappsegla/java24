@@ -21,7 +21,8 @@ public class App {
         //totalSalaryOfEmployees();
         //sortEmployeesByAscSalary();
         //limitFive();
-        skipFive();
+        //skipFive();
+
     }
 
     public static void skipFive() {
