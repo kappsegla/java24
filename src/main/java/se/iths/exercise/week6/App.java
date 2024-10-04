@@ -11,7 +11,7 @@ public class App {
         //numberOfEmployees();
         //employeeWithHighestSalary();
         employeeWithLowestSalary();
-        test();
+        employeesWithLowestSalary();
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -48,23 +48,10 @@ public class App {
         // .forEach(System.out::println);
     }
 
-    public static void test() {
+    public static void employeesWithLowestSalary() {
         List<Employee> lowestSalaryEmployees = employees.stream()
-                .parallel()
                 .reduce(new ArrayList<Employee>(), App::keepIfLowest, (left, right) -> {
-                    if (left.isEmpty())
-                        return right;
-                    else if (right.isEmpty())
-                        return left;
-                    else if (left.get(0).salary() < right.get(0).salary())
-                        return left;
-                    else if (left.get(0).salary() > right.get(0).salary())
-                        return right;
-                    else {
-                        var list = new ArrayList<>(right);
-                        list.addAll(left);
-                        return list;
-                    }
+                    throw new UnsupportedOperationException();
                 });
 
         lowestSalaryEmployees.forEach(System.out::println);
