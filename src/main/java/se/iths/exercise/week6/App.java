@@ -1,6 +1,7 @@
 package se.iths.exercise.week6;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class App {
     public final static List<Employee> employees = EmployeeFactory.getAllEmployees();
@@ -12,8 +13,8 @@ public class App {
         //employeeWithHighestSalary();
         //employeeWithLowestSalary();
         //employeesWithLowestSalary();
-        employeesWorkingOnMoreThanOneProject();
-
+        //employeesWorkingOnMoreThanOneProject();
+        projectNames();
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -58,6 +59,23 @@ public class App {
                 .filter(e -> e.projects().size() > 1)
                 .map(e -> e.firstName() + " " + e.lastName() + ", Projects: " + e.projects().size())
                 .forEach(System.out::println);
+    }
+
+    public static void projectNames() {
+        Set<Project> projects = new HashSet<>();
+
+        employees.stream()
+                .map(Employee::projects)
+                .forEach(projects::addAll);
+
+        projects.forEach(System.out::println);
+
+        // Alternativ 2
+        employees.stream()
+                .map(Employee::projects)
+                .flatMap(List::stream)
+                .collect(Collectors.toSet())
+                .forEach(System.out::println);  //forEach from Iterable interface
     }
 
     public static void employeesWithLowestSalary() {
