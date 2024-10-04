@@ -23,7 +23,34 @@ public class App {
         //limitFive();
         //skipFive();
 
+        lowestAndHighestSalary();
+
     }
+
+    public static void lowestAndHighestSalary() {
+        employees.stream()
+                .map(ShortEmployee::create)
+                .collect(Collectors.teeing(
+                        Collectors.minBy(Comparator.comparingInt(ShortEmployee::salary)),
+                        Collectors.maxBy(Comparator.comparingInt(ShortEmployee::salary)),
+                        //MinMax::new
+                        List::of
+                        //(min, max) -> List.of(min, max) - lambda version of List::of
+                )).forEach(System.out::println);
+    }
+
+record ShortEmployee(String name, int salary){
+       public ShortEmployee(Employee employee){
+           this(employee.firstName() + " " + employee.lastName(), employee.salary());
+       }
+
+       public static ShortEmployee create(Employee employee){
+           return new ShortEmployee(employee.firstName() + " " + employee.lastName(), employee.salary());
+       }
+}
+
+//    record MinMax(Optional<Employee> a, Optional<Employee> b) {
+//    }
 
     public static void skipFive() {
         employees.stream().skip(5).forEach(System.out::println);
