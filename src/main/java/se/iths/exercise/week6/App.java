@@ -1,6 +1,8 @@
 package se.iths.exercise.week6;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class App {
     public final static List<Employee> employees = EmployeeFactory.getAllEmployees();
@@ -26,7 +28,10 @@ public class App {
     }
 
     public static void employeeWithHighestSalary() {
+        Optional<Employee> employee = employees.stream()
+                .max(Comparator.comparing(Employee::salary));
 
+        employee.ifPresent(System.out::println);
     }
 
 
