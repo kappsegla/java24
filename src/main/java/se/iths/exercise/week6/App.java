@@ -14,7 +14,8 @@ public class App {
         //employeeWithLowestSalary();
         //employeesWithLowestSalary();
         //employeesWorkingOnMoreThanOneProject();
-        projectNames();
+        //projectNames();
+        
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -50,8 +51,8 @@ public class App {
                 .salary();
 
         employees.stream()
-         .filter(e -> e.salary() == min)
-         .forEach(System.out::println);
+                .filter(e -> e.salary() == min)
+                .forEach(System.out::println);
     }
 
     public static void employeesWorkingOnMoreThanOneProject() {
@@ -80,9 +81,7 @@ public class App {
 
     public static void employeesWithLowestSalary() {
         List<Employee> lowestSalaryEmployees = employees.stream()
-                .reduce(new ArrayList<Employee>(), App::keepIfLowest, (left, right) -> {
-                    throw new UnsupportedOperationException();
-                });
+                .reduce(new ArrayList<Employee>(), App::keepIfLowest, App::keepIfLowestCombiner);
 
         lowestSalaryEmployees.forEach(System.out::println);
     }
@@ -95,5 +94,9 @@ public class App {
             list.add(employee);
         }
         return list;
+    }
+
+    private static ArrayList<Employee> keepIfLowestCombiner(List<Employee> left, List<Employee> right) {
+        throw new UnsupportedOperationException();
     }
 }
