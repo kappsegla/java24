@@ -16,8 +16,13 @@ public class App {
         //employeesWorkingOnMoreThanOneProject();
         //projectNames();
         //groupEmployeesByNumberOfProjects();
-        checkIfAllEmployeesHasSalaryOver(2_000_000);
+        //checkIfAllEmployeesHasSalaryOver(2_000_000);
+        checkIfAnyEmployeeHasSalaryUnder(1_000_000);
+    }
 
+    public static void checkIfAnyEmployeeHasSalaryUnder(int amount) {
+        System.out.println(employees.stream()
+                .anyMatch(e -> e.salary() < amount));
     }
 
     public static void checkIfAllEmployeesHasSalaryOver(int amount) {
