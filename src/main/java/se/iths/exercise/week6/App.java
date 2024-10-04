@@ -56,6 +56,7 @@ public class App {
     public static void employeesWorkingOnMoreThanOneProject() {
         employees.stream()
                 .filter(e -> e.projects().size() > 1)
+                .map(e -> e.firstName() + " " + e.lastName() + ", Projects: " + e.projects().size())
                 .forEach(System.out::println);
     }
 
