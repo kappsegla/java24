@@ -15,7 +15,8 @@ public class App {
         //employeesWithLowestSalary();
         //employeesWorkingOnMoreThanOneProject();
         //projectNames();
-        
+        groupEmployeesByNumberOfProjects();
+
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -84,6 +85,12 @@ public class App {
                 .reduce(new ArrayList<Employee>(), App::keepIfLowest, App::keepIfLowestCombiner);
 
         lowestSalaryEmployees.forEach(System.out::println);
+    }
+
+    public static void groupEmployeesByNumberOfProjects() {
+        employees.stream()
+                .collect(Collectors.groupingBy(e -> e.projects().size()))
+                .forEach((key, value) -> System.out.println(key + ": " + value));
     }
 
     private static ArrayList<Employee> keepIfLowest(ArrayList<Employee> list, Employee employee) {
