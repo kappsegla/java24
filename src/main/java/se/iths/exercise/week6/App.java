@@ -10,8 +10,10 @@ public class App {
         //allEmployeesWithSalaryOver(2_000_000);
         //numberOfEmployees();
         //employeeWithHighestSalary();
-        employeeWithLowestSalary();
-        employeesWithLowestSalary();
+        //employeeWithLowestSalary();
+        //employeesWithLowestSalary();
+        employeesWorkingOnMoreThanOneProject();
+
     }
 
     public static void allEmployeesWithSalaryOver(int amount) {
@@ -49,6 +51,12 @@ public class App {
         employees.stream()
          .filter(e -> e.salary() == min)
          .forEach(System.out::println);
+    }
+
+    public static void employeesWorkingOnMoreThanOneProject() {
+        employees.stream()
+                .filter(e -> e.projects().size() > 1)
+                .forEach(System.out::println);
     }
 
     public static void employeesWithLowestSalary() {
