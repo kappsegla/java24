@@ -28,15 +28,15 @@ public class App {
     }
 
     public static void lowestAndHighestSalary() {
-        employees.stream()
-                .map(ShortEmployee::create)
+         var list = employees.stream()
+                .map(ShortEmployee::new)
                 .collect(Collectors.teeing(
                         Collectors.minBy(Comparator.comparingInt(ShortEmployee::salary)),
                         Collectors.maxBy(Comparator.comparingInt(ShortEmployee::salary)),
                         //MinMax::new
                         List::of
-                        //(min, max) -> List.of(min, max) - lambda version of List::of
-                )).forEach(System.out::println);
+                        //(emp1, emp2) -> List.of(emp1, emp2) - lambda version of List::of
+                ));//.forEach(System.out::println);
     }
 
 record ShortEmployee(String name, int salary){
