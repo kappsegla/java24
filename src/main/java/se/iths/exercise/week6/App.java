@@ -41,11 +41,14 @@ public class App {
         employee.ifPresent((e) -> System.out.println(e.firstName() + " " + e.lastName()));
 
         // Alternativ 2
-        //var min = employees.stream().min(Comparator.comparing(Employee::salary)).orElseThrow().salary();
-        //employees.stream()
-        // .filter(e -> e.salary() == min)
-        // .toList()
-        // .forEach(System.out::println);
+        var min = employees.stream()
+                .min(Comparator.comparing(Employee::salary))
+                .orElseThrow()
+                .salary();
+
+        employees.stream()
+         .filter(e -> e.salary() == min)
+         .forEach(System.out::println);
     }
 
     public static void employeesWithLowestSalary() {
