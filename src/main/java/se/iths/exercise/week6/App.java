@@ -6,8 +6,8 @@ public class App {
 
     public static void main(String[] args) {
 
-        allEmployeesWithSalaryOver(2_000_000);
-
+        //allEmployeesWithSalaryOver(2_000_000);
+        numberOfEmployees();
 
     }
 
@@ -18,7 +18,13 @@ public class App {
                 .forEach(System.out::println);
     }
 
+    public static void numberOfEmployees() {
+        List<Employee> employees = EmployeeFactory.getAllEmployees();
 
+        var count = employees.stream().count();
+
+        System.out.println(count);
+    }
 
 
 }
