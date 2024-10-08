@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Collectors;
 
 public class Attendance {
     public static void main(String[] args) {
@@ -17,24 +18,21 @@ public class Attendance {
             return;
         }
 
-        //Läsa alla rader från filen
-
         try {
-            var lines = Files.lines(attendanceFile, StandardCharsets.UTF_16LE);
-
-            lines.skip(1)
-                    .map(line -> line.split("\t")[0])
-                    .map(name -> name.substring(0, !name.contains(" - ") ? name.length() : name.indexOf(" - ")))
-                    //.map(name-> name.replaceAll(" - .*$", ""))
-                    .distinct()
-                    .forEach(System.out::println);
-
-
+            try (var lines = Files.lines(attendanceFile, StandardCharsets.UTF_16LE)) {
+                //Find all unique names that has attended
+                var persons = lines.skip(1)
+                        .map(line -> line.split("\t")[0])
+                        //.map(name -> name.substring(0, !name.contains(" - ") ? name.length() : name.indexOf(" - ")))
+                        .map(name -> name.replaceAll(" - .*$", ""))
+                        .collect(Collectors.toSet());
+                System.out.println("Number of attendances: " + persons.size());
+                persons.forEach(System.out::println);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        //Hitta alla unika namn som närvarat
 
         //Hur många unika personer har närvarat
 
