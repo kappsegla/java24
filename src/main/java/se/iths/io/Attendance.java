@@ -38,21 +38,31 @@ public class Attendance {
         try {
             try (var lines = Files.lines(attendanceFile, StandardCharsets.UTF_16LE)) {
                 //Find all unique names that has attended
-                var persons = lines.skip(1)
+                var personsMap = lines.skip(1)
                         .map(line -> line.split("\t"))
                         .map(PersonAttendance::of)
-                        .collect(Collectors.toSet());
-                persons.forEach(System.out::println);
+                        .collect(Collectors.groupingBy(PersonAttendance::name, Collectors.toList()));
+
+                personsMap.forEach((name, persons) -> {
+                    var totalTime = 0;
+                    for (int i = 0; i < persons.size(); i += 2) {
+                        if( i == persons.size() - 1 ) {
+                            totalTime += (int) java.time.Duration.between(persons.get(i).dateTime(),
+                                    LocalDateTime.now()).toMinutes();
+                        }
+                        else
+                            totalTime += (int) java.time.Duration.between(persons.get(i).dateTime(),
+                                persons.get(i + 1).dateTime()).toMinutes();
+                    }
+
+                    System.out.println(name + " has been online for " + totalTime +" minutes.");
+                });
+
 
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-        //Hur länge har varje person varit ansluten
-
-
     }
 }
 
