@@ -45,7 +45,7 @@ public class ReadFromFile {
         } catch (IOException e) {
             System.out.println("Error writing to file " + java24txt);
         }
-        
+
 //        try {
 //            Files.delete(java24txt);
 //        } catch (IOException e) {
