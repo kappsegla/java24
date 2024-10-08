@@ -1,5 +1,7 @@
 package se.iths.io;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -17,8 +19,12 @@ public class Attendance {
         }
 
         //Läsa alla rader från filen
-
-
+        try {
+            var lines = Files.readAllLines(attendanceFile, StandardCharsets.UTF_16LE);
+            lines.forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         //Hitta alla unika namn som närvarat
 
