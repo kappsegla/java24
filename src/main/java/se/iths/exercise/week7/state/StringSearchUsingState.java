@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class StringSearchUsingState {
 
     public static void main(String[] args) {
-        String text = "This is my cats favorite food.";
+        String text = "This is my caaats favorite food.";
         boolean match = checkForCat(text);
         if(match)
             System.out.println("Text contains cat");
@@ -17,7 +17,6 @@ public class StringSearchUsingState {
         Pattern pattern = Pattern.compile("ca+t");
         Matcher matcher = pattern.matcher(text);
         System.out.println(matcher.find());
-
     }
 
     private static boolean checkForCat(String text) {
