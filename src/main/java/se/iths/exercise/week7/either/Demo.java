@@ -6,6 +6,13 @@ import java.util.Set;
 public class Demo {
     public static void main(String[] args) {
 
+        var demo = new Demo();
+
+        Either either = demo.getUserAccount(2);
+        if( either.isRight())
+            System.out.println(either.getRight());
+        else
+            System.out.println(either.getLeft());
 
     }
 
@@ -29,7 +36,9 @@ public class Demo {
     private Optional<User> getUserById(int userId) {
         if (userId < 1)
             return Optional.empty();
-        return Optional.of(new User(userId, "Donald"));
+        if( userId == 1)
+            return Optional.of(new User(userId, "Donald"));
+        return Optional.of(new User(userId, "Minny"));
     }
 
     //This method can return zero or many Accounts.
@@ -39,7 +48,7 @@ public class Demo {
             return Set.of();
         if (user.name().equals("Donald"))
             return Set.of(new Account(1, user), new Account(3, user));
-        return Set.of(new Account(2, user));
+        return Set.of();
     }
 }
 

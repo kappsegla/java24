@@ -1,15 +1,15 @@
 package se.iths.exercise.week7.either;
 
-public final class Either {
+public class Either {
     private final Error left;
     private final Account right;
 
 
-    public static Either left(Error left){
+    public static Either left(Error left) {
         return new Either(left, null);
     }
 
-    public static Either right(Account right){
+    public static Either right(Account right) {
         return new Either(null, right);
     }
 
