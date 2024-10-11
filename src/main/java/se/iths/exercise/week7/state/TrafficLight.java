@@ -8,25 +8,25 @@ public class TrafficLight {
     public static void main(String[] args) {
         TrafficLight t = new TrafficLight();
         System.out.println(t.state);
-        t.nextState();
+        t.state = t.state.nextState();
         System.out.println(t.state);
-        t.nextState();
+        t.state = t.state.nextState();
         System.out.println(t.state);
-        t.nextState();
+        t.state = t.state.nextState();
         System.out.println(t.state);
-        t.nextState();
+        t.state = t.state.nextState();
     }
+}
 
-    private void nextState() {
-        state = switch (state) {
+enum LightState {
+    RED, RED_ORANGE, ORANGE, GREEN;
+
+    public LightState nextState() {
+        return switch (this) {
             case RED -> RED_ORANGE;
             case RED_ORANGE -> GREEN;
             case GREEN -> ORANGE;
             case ORANGE -> RED;
         };
     }
-}
-
-enum LightState {
-    RED, RED_ORANGE, ORANGE, GREEN
 }
