@@ -21,15 +21,23 @@ public class Either {
         this.right = right;
     }
 
-//     public Either(Error left){
-//         this.left = left;
-//         this.right = null;
-//     }
-//
-//     public Either(Account right){
-//         this.left = null;
-//         this.right = right;
-//     }
+    public boolean isLeft() {
+        return left != null;
+    }
 
+    public boolean isRight() {
+        return right != null;
+    }
 
+    public Error getLeft() {
+        if (!isLeft())
+            throw new IllegalStateException("Left doesn't have a value");
+        return left;
+    }
+
+    public Account getRight() {
+        if (!isRight())
+            throw new IllegalStateException("Right doesn't have a value");
+        return right;
+    }
 }
