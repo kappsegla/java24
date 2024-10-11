@@ -1,6 +1,6 @@
 package se.iths.exercise.week7.either;
 
-public class Either {
+public final class Either {
     private final Error left;
     private final Account right;
 
