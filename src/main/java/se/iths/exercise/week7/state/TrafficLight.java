@@ -7,26 +7,44 @@ public class TrafficLight {
 
     public static void main(String[] args) {
         TrafficLight t = new TrafficLight();
-        System.out.println(t.state);
-        t.state = t.state.nextState();
-        System.out.println(t.state);
-        t.state = t.state.nextState();
-        System.out.println(t.state);
-        t.state = t.state.nextState();
-        System.out.println(t.state);
-        t.state = t.state.nextState();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(t.state);
+            t.state = t.state.nextState();
+        }
     }
 }
 
 enum LightState {
-    RED, RED_ORANGE, ORANGE, GREEN;
+    RED {
+        @Override
+        public LightState nextState() {
+            return RED_ORANGE;
+        }
+    }, RED_ORANGE {
+        @Override
+        public LightState nextState() {
+            return GREEN;
+        }
+    }, ORANGE {
+        @Override
+        public LightState nextState() {
+            return RED;
+        }
+    }, GREEN {
+        @Override
+        public LightState nextState() {
+            return ORANGE;
+        }
+    };
 
-    public LightState nextState() {
-        return switch (this) {
-            case RED -> RED_ORANGE;
-            case RED_ORANGE -> GREEN;
-            case GREEN -> ORANGE;
-            case ORANGE -> RED;
-        };
-    }
+    public abstract LightState nextState();
+
+//    public LightState nextState() {
+//        return switch (this) {
+//            case RED -> RED_ORANGE;
+//            case RED_ORANGE -> GREEN;
+//            case GREEN -> ORANGE;
+//            case ORANGE -> RED;
+//        };
+//    }
 }
