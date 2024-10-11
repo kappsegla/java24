@@ -1,22 +1,22 @@
 package se.iths.exercise.week7.either;
 
-public class Either {
-    private final Error left;
-    private final Account right;
+public class Either<L, R> {
+    private final L left;
+    private final R right;
 
 
-    public static Either left(Error left) {
-        return new Either(left, null);
+    public static <L, R> Either<L, R> left(L left) {
+        return new Either<>(left, null);
     }
 
-    public static Either right(Account right) {
-        return new Either(null, right);
+    public static <L, R> Either<L, R> right(R right) {
+        return new Either<>(null, right);
     }
 
     // The reason this is private is that
     // we don't want a user to be able to create a new object
     // and pass both an error & an account
-    private Either(Error left, Account right) {
+    private Either(L left, R right) {
         this.left = left;
         this.right = right;
     }
@@ -29,13 +29,13 @@ public class Either {
         return right != null;
     }
 
-    public Error getLeft() {
+    public L getLeft() {
         if (!isLeft())
             throw new IllegalStateException("Left doesn't have a value");
         return left;
     }
 
-    public Account getRight() {
+    public R getRight() {
         if (!isRight())
             throw new IllegalStateException("Right doesn't have a value");
         return right;
