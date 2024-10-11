@@ -1,19 +1,27 @@
 package se.iths.exercise.week7.either;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 public class Demo {
     public static void main(String[] args) {
-
         var demo = new Demo();
 
-        Either either = demo.getUserAccount(2);
-        if( either.isRight())
-            System.out.println(either.getRight());
-        else
-            System.out.println(either.getLeft());
+        var userIds = List.of(0,1,2,3);
 
+            userIds.stream().map(demo::getUserAccount)
+                    .filter(Either::isRight)
+                    .map(Either::getRight)
+                    .forEach(System.out::println);
+
+//        for( var userId : userIds ) {
+//            Either either = demo.getUserAccount(userId);
+//            if (either.isRight())
+//                System.out.println(either.getRight());
+//            else
+//                System.out.println(either.getLeft());
+//        }
     }
 
     //Returnera ett konto för användaren om:
