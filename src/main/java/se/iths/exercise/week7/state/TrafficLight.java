@@ -15,21 +15,15 @@ public class TrafficLight {
         t.nextState();
         System.out.println(t.state);
         t.nextState();
-        System.out.println(t.state);
-        t.nextState();
-        System.out.println(t.state);
-        t.nextState();
     }
 
     private void nextState() {
-        if(state == RED )
-            state = RED_ORANGE;
-        else if(state == RED_ORANGE )
-            state = GREEN;
-        else if(state == GREEN)
-            state = ORANGE;
-        else if(state == ORANGE)
-            state = RED;
+        state = switch (state) {
+            case RED -> RED_ORANGE;
+            case RED_ORANGE -> GREEN;
+            case GREEN -> ORANGE;
+            case ORANGE -> RED;
+        };
     }
 }
 
