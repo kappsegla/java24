@@ -3,15 +3,16 @@ package se.iths.observable;
 public class Demo {
     public static void main(String[] args) {
 
-        Subject subject = new Subject();
+//        Subject subject = new Subject();
+//        subject.registerObserver(()-> System.out.println("Hello from first observer"));
+//        subject.registerObserver(()-> System.out.println("Hello from second observer"));
+//        subject.notifyObservers();
 
-        subject.registerObserver(()-> System.out.println("Hello from first observer"));
-        subject.registerObserver(()-> System.out.println("Hello from second observer"));
+        GameSubject gameSubject = new GameSubject("Moose");
+        gameSubject.registerObserver(() -> System.out.println("Game changed to: " + gameSubject.getType()));
+        gameSubject.registerObserver(() -> System.out.println("New game type: " + gameSubject.getType()));
 
-        subject.notifyObservers();
-
-        subject.registerObserver(()-> System.out.println("Hello from third observer"));
-        subject.notifyObservers();
-
+        gameSubject.setType("Deer");
+        gameSubject.setType("Hog");
     }
 }
