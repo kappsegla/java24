@@ -18,8 +18,6 @@ public abstract class Subject {
     }
 
     protected final void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.alert();
-        }
+        observers.forEach(Observer::alert);
     }
 }
