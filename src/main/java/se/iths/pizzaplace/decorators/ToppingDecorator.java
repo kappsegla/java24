@@ -11,7 +11,7 @@ public abstract class ToppingDecorator implements Pizza {
     private final Pizza pizza;
     private final String toppingName;
     private final int cost;
-    private final List<String> extraToppings = new ArrayList<>();
+    protected final List<String> extraToppings = new ArrayList<>();
 
 
     public ToppingDecorator(Pizza pizza, String toppingName, int cost, List<String> extraToppings) {
