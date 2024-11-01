@@ -1,4 +1,4 @@
-package se.iths.decorator;
+package se.iths.pizzaplace.pizza;
 
 import java.util.List;
 

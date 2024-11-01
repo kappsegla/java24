@@ -1,6 +1,7 @@
-package se.iths.decorator;
+package se.iths.pizzaplace.pizza;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class AbstractPizza implements Pizza {
@@ -15,13 +16,13 @@ public abstract class AbstractPizza implements Pizza {
     }
 
     @Override
-    public int getCost(){
+    public int getCost() {
         return price;
     }
 
     @Override
-    public List<String> getDescription(){
-        return description;
+    public List<String> getDescription() {
+        return Collections.unmodifiableList(description);
     }
 
     public String getName() {
